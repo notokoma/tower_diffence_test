@@ -6,7 +6,7 @@ public class CubeMove : MonoBehaviour
 {
 	float move = 0.05f;
 	int hp = 100;
-    Vector3 v = new Vector3(-8.5f, 2.1f, 0);
+    Vector3 v = new Vector3(-8.5f, -11.3f, 2.1f);
 	public bool isDamaged = false;
 	
 	void Start()
@@ -16,16 +16,16 @@ public class CubeMove : MonoBehaviour
 	
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, v, move);
+        transform.localPosition = Vector3.MoveTowards(transform.localPosition, v, move);
  
-        if (transform.position.y == 2.1f && transform.position.x == -8.5f)
+        if (transform.localPosition.z == 2.1f && transform.localPosition.x == -8.5f)
         {
 			v.x = 8.5f;
         }
  
-        if (this.transform.position.x == 8.5f && transform.position.y == 2.1f)
+        if (this.transform.localPosition.x == 8.5f && transform.localPosition.z == 2.1f)
         {
-			v.y = -8.5f;
+			v.z = -8.5f;
         }
 		
 		if(isDamaged){
