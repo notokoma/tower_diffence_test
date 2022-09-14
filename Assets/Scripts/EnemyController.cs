@@ -7,7 +7,7 @@ public class EnemyController : MonoBehaviour
 {
     NavMeshAgent Player_Nav;
     GameObject Destination;
-    int hp = 100;
+    public int hp = 100;
 
     void Start()
     {
@@ -26,8 +26,8 @@ public class EnemyController : MonoBehaviour
 			Destroy(this.gameObject);
 		}
     }
-    public void Damaged()
+    public void Damaged(int damage)
 	{
-		hp = hp - 50;
+        hp = hp - damage;
 	}
 }

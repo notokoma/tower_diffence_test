@@ -8,7 +8,8 @@ public class ColliderTest : MonoBehaviour
     {
 		if(other.gameObject.tag == "enemy")
 		{
-			other.gameObject.GetComponent<EnemyController>().Damaged();	
+			int damageFirewall = 50;
+			other.gameObject.GetComponent<EnemyController>().Damaged(damageFirewall);
 		}
     }
 }
