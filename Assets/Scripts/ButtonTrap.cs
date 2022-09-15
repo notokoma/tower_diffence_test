@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ButtonTrap : MonoBehaviour
 {
-    public static int trapType;
     public void OnClick()
     {
-         trapType = 1;
+        objectClick.trapType = 1;
+        print(objectClick.trapType);
     }
 }
