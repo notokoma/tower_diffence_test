@@ -10,6 +10,6 @@ public class ButtonScript : MonoBehaviour {
         // CubeプレハブをGameObject型で取得
         GameObject obj = (GameObject)Resources.Load ("Enemy");
         // Cubeプレハブを元に、インスタンスを生成、
-        Instantiate (obj, new Vector3(-3.0f,-7.0f,-11.0f), Quaternion.identity);
+        Instantiate (obj, new Vector3(-3.5f,-7.5f,-11.5f), Quaternion.identity);
     }
 }
