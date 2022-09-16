@@ -7,6 +7,5 @@ public class ButtonTrap : MonoBehaviour
     public void OnClick()
     {
         objectClick.trapType = 1;
-        print(objectClick.trapType);
     }
 }
