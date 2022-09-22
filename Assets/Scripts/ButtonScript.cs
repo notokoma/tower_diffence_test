@@ -7,9 +7,13 @@ public class ButtonScript : MonoBehaviour {
     // ボタンが押された場合、今回呼び出される関数
     public void OnClick()
     {
+        GameObject StartingPoint = GameObject.Find("enemyspawnpoint(Clone)");
+        Transform StartingPointTransform = StartingPoint.transform;
+        Vector3 StartingPointPos = StartingPointTransform.position;
         // CubeプレハブをGameObject型で取得
         GameObject obj = (GameObject)Resources.Load ("Enemy");
         // Cubeプレハブを元に、インスタンスを生成、
-        Instantiate (obj, new Vector3(-3.5f,-7.5f,-11.5f), Quaternion.identity);
+        Instantiate (obj, StartingPointPos, Quaternion.identity);
+        GetComponent<NavMeshSurface> ().Bake ();
     }
 }

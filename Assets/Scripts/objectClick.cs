@@ -19,14 +19,6 @@ public class objectClick : MonoBehaviour, IPointerClickHandler
 
         thisPos.x = parentPos.x;
         thisPos.y = thisPos.y + 2.0f;
-        Vector3 judgePos = thisPos;
-        judgePos.y = judgePos.y + 1.0f;
-
-        GameObject judgeObj = (GameObject)Resources.Load ("judge");
-        Instantiate (judgeObj, judgePos, Quaternion.identity);
-        
-
-        print(judgePos);
 
         switch(trapType){
             case 1:
