@@ -4,26 +4,26 @@ using UnityEngine;
 
 public class StageAllay : MonoBehaviour
 {
-    public GameObject Ground;
-    public GameObject HighGround;
-    public GameObject enemyspawnpoint;
-    public GameObject goalpoint;
+    //public GameObject Ground;
+    //public GameObject HighGround;
+    //public GameObject enemyspawnpoint;
+    //public GameObject goalpoint;
 
-    public int[,] DeployStage = new int[11,11]{
-        {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
-        {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
+    public static int[,] DeployStage = new int[11,11]{
         {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
         {-1,0,0,0,0,0,0,0,0,0,-1},
         {-1,0,0,0,0,0,0,0,0,0,-1},
-        {-1,0,0,0,-1,-1,-1,0,0,0,-1},
-        {-1,0,0,0,-1,-1,-1,0,0,0,-1},
-        {-1,0,0,0,-1,-1,-1,0,0,0,-1},
-        {-1,0,0,0,-1,-1,-1,0,0,0,-1},
-        {-1,-1,0,0,-1,-1,-1,0,0,-1,-1},
+        {-1,0,0,0,0,0,0,0,0,0,-1},
+        {-1,0,0,0,0,0,0,0,0,0,-1},
+        {-1,0,0,0,0,0,0,0,0,0,-1},
+        {-1,0,0,0,0,0,0,0,0,0,-1},
+        {-1,0,0,0,0,0,0,0,0,0,-1},
+        {-1,0,0,0,0,0,0,0,0,0,-1},
+        {-1,-1,0,0,0,0,0,0,0,-1,-1},
         {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
     };
 
-        public int[,] TerrainStage = new int[11,11]{
+        public static int[,] TerrainStage = new int[11,11]{
         {1,1,1,1,1,1,1,1,1,1,1},
         {1,1,1,1,1,1,1,1,1,1,1},
         {1,1,1,1,1,1,1,1,1,1,1},
@@ -40,7 +40,7 @@ public class StageAllay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for(int i=0;i<TerrainStage.GetLength(0); i++){
+        /* for(int i=0;i<TerrainStage.GetLength(0); i++){
             for(int j=0;j<TerrainStage.GetLength(1); j++){
                 //床の配置
                 Instantiate(Ground,new Vector3(i,0,j),Quaternion.identity);
@@ -53,5 +53,5 @@ public class StageAllay : MonoBehaviour
                 }
                 }
             }
-        }
+        */}
     }

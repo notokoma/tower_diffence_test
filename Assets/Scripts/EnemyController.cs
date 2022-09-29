@@ -14,7 +14,7 @@ public class EnemyController : MonoBehaviour
         //プレイヤーのNavMeshAgentを取得
         Player_Nav = GetComponent<NavMeshAgent>();
         //目的地のオブジェクトを取得
-        Destination = GameObject.Find("goalpoint");
+        Destination = GameObject.FindWithTag("goalpoint");
     }
 
     void Update()
