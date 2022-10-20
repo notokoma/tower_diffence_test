@@ -4,17 +4,28 @@ using UnityEngine;
 
 public class CanonBoomScript : MonoBehaviour
 {
-    public float speed = 0.1f;
+    public float speed = 0.3f;
+    Vector3 dest;
     // Start is called before the first frame update
     void Start()
     {
-        transform dist = TrapCanon.closeEnemy.transform.position;
+        dest = TrapCanon.closeEnemy.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
         float step = speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, dist, step);
+        transform.position = Vector3.MoveTowards(transform.position, dest, speed);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+		if(other.gameObject.tag == "enemy")
+		{
+			int damageCanonBoom = 30;
+			other.gameObject.GetComponent<EnemyController>().Damaged(damageCanonBoom);
+            
+		}
+        Destroy(this.gameObject);
     }
 }
