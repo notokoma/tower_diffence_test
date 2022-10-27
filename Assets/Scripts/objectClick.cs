@@ -5,6 +5,7 @@ public class objectClick : MonoBehaviour, IPointerClickHandler
 {
 
     public static int trapType;
+    public static 
     int a;
 
     // クリックされたときに呼び出されるメソッド

@@ -15,7 +15,7 @@ public class CanonBoomScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float step = speed * Time.deltaTime;
+        float step = speed;
         transform.position = Vector3.MoveTowards(transform.position, dest, speed);
     }
     private void OnTriggerEnter(Collider other)

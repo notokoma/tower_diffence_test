@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class TrapFirewall : MonoBehaviour
 {
+	int damageFirewall = 50;
     private void OnTriggerEnter(Collider other)
     {
 		if(other.gameObject.tag == "enemy")
 		{
-			int damageFirewall = 50;
 			other.gameObject.GetComponent<EnemyController>().Damaged(damageFirewall);
 		}
     }

@@ -6,31 +6,28 @@ using UnityEngine.UI;
 
 public class EnemyController : MonoBehaviour
 {
-    NavMeshAgent Player_Nav;
+    NavMeshAgent Enemy_Nav;
     GameObject Destination;
     int maxHp = 100;
     int hp;
-    Slider slider;
 
     void Start()
     {
         //プレイヤーのNavMeshAgentを取得
-        slider = GetComponent<>
-        Player_Nav = GetComponent<NavMeshAgent>();
+        Enemy_Nav = GetComponent<NavMeshAgent>();
         //目的地のオブジェクトを取得
         Destination = GameObject.FindWithTag("goalpoint");
 
-        //Sliderを満タンにする。
-        slider.value = 1;
-        //現在のHPを最大HPと同じに。
         hp = maxHp;
+
+        this.Enemy_Nav.speed = 2.0f;
         //Debug.Log("Start currentHp : " + hp);
     }
 
     void Update()
     {
         //目的地を設定
-        Player_Nav.SetDestination(Destination.transform.position);
+        Enemy_Nav.SetDestination(Destination.transform.position);
 
 		if(hp <= 0){
 			Destroy(this.gameObject);
@@ -40,7 +37,13 @@ public class EnemyController : MonoBehaviour
 	{
         hp = hp - damage;
         print(hp);
-        slider.value = (float)hp / (float)maxHp;
         //Debug.Log("slider.value : " + slider.value);
 	}
+    private void OnTriggerEnter(Collider other)
+    {
+		if(other.gameObject.tag == "goalpoint")
+		{
+            Destroy(this.gameObject);
+		}
+    }
 }

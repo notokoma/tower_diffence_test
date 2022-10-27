@@ -53,7 +53,7 @@ public class TrapCanon : MonoBehaviour
             Transform myTransform = this.transform;
             Vector3 thisPos = myTransform.position;
             //print("a");
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.5f);
             if(closeEnemy != null){
             GameObject BoomObj = (GameObject)Resources.Load ("CanonBoom");
             Instantiate (BoomObj, thisPos, Quaternion.identity);
