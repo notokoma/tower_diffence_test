@@ -7,7 +7,7 @@ public class TrapCanon : MonoBehaviour
     private GameObject[] targets;
     float closeDist;
     float closeDistN = 5;
-    private GameObject closeEnemy;
+    GameObject closeEnemy;
     public GameObject nullnull;
 
     // Start is called before the first frame update
@@ -41,6 +41,7 @@ public class TrapCanon : MonoBehaviour
             }
             if(closeDistN < tDist){
                 closeEnemy = nullnull;
+                StopCoroutine("CanonBoom");
             }
         }
         closeDist = closeDistN;
@@ -55,6 +56,7 @@ public class TrapCanon : MonoBehaviour
             if(closeEnemy != nullnull){
             GameObject BoomObj = (GameObject)Resources.Load ("CanonBoom");
             Instantiate (BoomObj, thisPos, Quaternion.identity);
+            CanonBoomScript.destinationEnemy = closeEnemy;
             }
         }
     }
