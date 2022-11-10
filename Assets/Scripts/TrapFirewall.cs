@@ -9,6 +9,7 @@ public class TrapFirewall : MonoBehaviour
     {
 		if(other.gameObject.tag == "enemy")
 		{
+			GameScore.FirewallDamaged = GameScore.FirewallDamaged + damageFirewall;
 			other.gameObject.GetComponent<EnemyController>().Damaged(damageFirewall);
 		}
     }

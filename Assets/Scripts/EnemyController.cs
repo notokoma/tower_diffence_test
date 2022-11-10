@@ -30,13 +30,14 @@ public class EnemyController : MonoBehaviour
         Enemy_Nav.SetDestination(Destination.transform.position);
 
 		if(hp <= 0){
+            print(GameScore.CanonDamaged + "," + GameScore.FirewallDamaged);
 			Destroy(this.gameObject);
 		}
     }
     public void Damaged(int damage)
 	{
         hp = hp - damage;
-        print(hp);
+        //print(hp);
         //Debug.Log("slider.value : " + slider.value);
 	}
     private void OnTriggerEnter(Collider other)

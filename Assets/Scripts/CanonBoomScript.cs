@@ -23,6 +23,7 @@ public class CanonBoomScript : MonoBehaviour
 		if(other.gameObject.tag == "enemy")
 		{
 			int damageCanonBoom = 30;
+            GameScore.CanonDamaged = GameScore.CanonDamaged + damageCanonBoom;
 			other.gameObject.GetComponent<EnemyController>().Damaged(damageCanonBoom);
             
 		}

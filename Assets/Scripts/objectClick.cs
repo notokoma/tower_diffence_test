@@ -22,13 +22,14 @@ public class objectClick : MonoBehaviour, IPointerClickHandler
 
         for(int i=0;i<11;i++){
             for(int j=0;j<11;j++){
-                
-        if (StageAllay.DeployStage[j,i] == 0 && i*2 == parentPos.x && j*-2+4 == thisPos.z){
+            if(i*2 == thisPos.x && j*2 == parentPos.z){
+                print(i + "," + j);
+        if (StageAllay.DeployStage[j,i] == 0 ){
 
         switch(trapType){
             case 1:
             if(StageAllay.TerrainStage[j,i] == 0){
-                thisPos.x = parentPos.x;
+                thisPos.z = parentPos.z;
                 thisPos.y = thisPos.y + 2.0f;
                 GameObject trapObj = (GameObject)Resources.Load ("firewall");
                 Instantiate (trapObj, thisPos, Quaternion.identity);
@@ -37,7 +38,7 @@ public class objectClick : MonoBehaviour, IPointerClickHandler
                 break;
             case 2:
             if(StageAllay.TerrainStage[j,i] == 1){
-                thisPos.x = parentPos.x;
+                thisPos.z = parentPos.z;
                 thisPos.y = thisPos.y + 3.0f;
                 GameObject trapObj = (GameObject)Resources.Load ("Canon");
                 Instantiate (trapObj, thisPos, Quaternion.identity);
@@ -46,6 +47,7 @@ public class objectClick : MonoBehaviour, IPointerClickHandler
             break;
             default:
             break;
+        }
                     }
                 }
             }
