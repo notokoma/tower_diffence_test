@@ -9,6 +9,8 @@ public class EnemyController : MonoBehaviour
     NavMeshAgent Enemy_Nav;
     GameObject Destination;
     int maxHp = 100;
+    int Def = 10;
+    int DefMagic = 5;
     int hp;
 
     void Start()
@@ -30,14 +32,20 @@ public class EnemyController : MonoBehaviour
         Enemy_Nav.SetDestination(Destination.transform.position);
 
 		if(hp <= 0){
-            print(GameScore.CanonDamaged + "," + GameScore.FirewallDamaged);
+            //print(GameScore.CanonDamaged + "," + GameScore.FirewallDamaged);
 			Destroy(this.gameObject);
 		}
     }
-    public void Damaged(int damage)
+    public void Damaged(int damage, int DamageType)
 	{
+        if(DamageType == 1){
+            damage = damage - Def;
+        } else if(DamageType == 2){
+            damage = damage * 100 / (100-DefMagic);
+        }
+        
         hp = hp - damage;
-        //print(hp);
+        print(hp);
         //Debug.Log("slider.value : " + slider.value);
 	}
     private void OnTriggerEnter(Collider other)
