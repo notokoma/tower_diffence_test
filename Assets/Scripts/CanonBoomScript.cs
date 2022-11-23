@@ -6,6 +6,7 @@ public class CanonBoomScript : MonoBehaviour
 {
     public float speedB = 0.0000001f;
     public static GameObject destinationEnemy;
+    public static int DamageTypeCanon = 1;
     Vector3 destinationEnemyT;
     // Start is called before the first frame update
     void Start()
@@ -26,7 +27,7 @@ public class CanonBoomScript : MonoBehaviour
 		if(other.gameObject.tag == "enemy")
 		{
 			int damageCanonBoom = 50;
-			other.gameObject.GetComponent<EnemyController>().Damaged(damageCanonBoom);
+			other.gameObject.GetComponent<EnemyController>().Damaged(damageCanonBoom,DamageTypeCanon);
             Destroy(this.gameObject);
 		}
     }
