@@ -5,8 +5,8 @@ public class objectClick : MonoBehaviour, IPointerClickHandler
 {
 
     public static int trapType;
-    public static 
-    int a;
+    public static int a;
+    int TrapAngle;
 
     // クリックされたときに呼び出されるメソッド
     public void OnPointerClick(PointerEventData eventData)
