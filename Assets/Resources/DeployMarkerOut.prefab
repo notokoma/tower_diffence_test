@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 1942822415728805713}
   - component: {fileID: 2108334428943484007}
   - component: {fileID: 606966740861287259}
+  - component: {fileID: 3578305292357020308}
   m_Layer: 0
   m_Name: DeployMarkerCollider1
   m_TagString: Untagged
@@ -197,6 +198,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &3578305292357020308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748287209329687469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66ccaed642f2049088c2126b8c331881, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2743471092947474895
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,7 +224,7 @@ GameObject:
   - component: {fileID: 4411223908815971296}
   m_Layer: 0
   m_Name: DeployMarkerOut
-  m_TagString: Untagged
+  m_TagString: DeployMarker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -409,6 +422,7 @@ GameObject:
   - component: {fileID: 105344441077229048}
   - component: {fileID: 6118902758140450267}
   - component: {fileID: 1245830633764942888}
+  - component: {fileID: 6744905163470367104}
   m_Layer: 0
   m_Name: DeployMarkerCollider3
   m_TagString: Untagged
@@ -496,6 +510,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &6744905163470367104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4457753585335162205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66ccaed642f2049088c2126b8c331881, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6127943216100171128
 GameObject:
   m_ObjectHideFlags: 0
@@ -508,6 +534,7 @@ GameObject:
   - component: {fileID: 3991330310102980556}
   - component: {fileID: 7635272406202480204}
   - component: {fileID: 6347612901321958132}
+  - component: {fileID: 3845832737788334964}
   m_Layer: 0
   m_Name: DeployMarkerCollider4
   m_TagString: Untagged
@@ -595,6 +622,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &3845832737788334964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6127943216100171128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66ccaed642f2049088c2126b8c331881, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6241167598033822616
 GameObject:
   m_ObjectHideFlags: 0
@@ -803,6 +842,7 @@ GameObject:
   - component: {fileID: 6062631462271113251}
   - component: {fileID: 5039916634606168531}
   - component: {fileID: 4427405980159483397}
+  - component: {fileID: 5506658772648190368}
   m_Layer: 0
   m_Name: DeployMarkerCollider2
   m_TagString: Untagged
@@ -890,3 +930,15 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &5506658772648190368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8987476678555273639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66ccaed642f2049088c2126b8c331881, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

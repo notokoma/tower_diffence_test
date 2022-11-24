@@ -6,6 +6,7 @@ TagManager:
   tags:
   - enemy
   - goalpoint
+  - DeployMarker
   layers:
   - Default
   - TransparentFX
