@@ -41,14 +41,14 @@ public class objectClick : MonoBehaviour, IPointerClickHandler
             switch(trapType){
                 case 1:
                 if(StageAllay.TerrainStage[j,i] == 0){
-                    thisPos.y = thisPos.y + 2.0f;
+                    thisPos.y = thisPos.y + 2.5f;
                     Instantiate(DeployAllows, thisPos, Quaternion.identity);
                     DeployProcess = 1;
                 }
                 break;
                 case 2:
                 if(StageAllay.TerrainStage[j,i] == 1){
-                    thisPos.y = thisPos.y + 3.0f;
+                    thisPos.y = thisPos.y + 3.5f;
                     Instantiate(DeployAllows, thisPos, Quaternion.identity);
                     DeployProcess = 1;
                 }
@@ -59,10 +59,12 @@ public class objectClick : MonoBehaviour, IPointerClickHandler
             
         switch(trapType){
             case 1:
+                thisPos.y = thisPos.y - 0.5f;
                 Instantiate (TrapObjFirewall, thisPos, Quaternion.identity);
                 StageAllay.DeployStage[j,i] = 1;
                 break;
             case 2:
+                thisPos.y = thisPos.y - 0.5f;
                 Instantiate (TrapObjCanon, thisPos, Quaternion.identity);
                 StageAllay.DeployStage[j,i] = 2;
                 break;
