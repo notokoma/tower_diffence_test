@@ -8,13 +8,14 @@ public class SceneTitleNext : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     public void OnClick()
     {
-            //切り替える
-            SceneManager.LoadScene("SceneGame");
+        TitleNextSound.SoundFlag1 = true;
+        //切り替える
+        SceneManager.LoadScene("SceneGame");
     }
 }
