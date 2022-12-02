@@ -14,7 +14,7 @@ public class GameTimeline : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        EnemySpawnNumber = 2;
+        EnemySpawnNumber = 5;
         SpawnTimecounter = 0.0f;
         spawn = true;
         deployTime = true;
