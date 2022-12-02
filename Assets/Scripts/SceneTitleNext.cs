@@ -14,7 +14,7 @@ public class SceneTitleNext : MonoBehaviour
     // Update is called once per frame
     public void OnClick()
     {
-            // SampleSceneに切り替える
+            //切り替える
             SceneManager.LoadScene("SceneGame");
     }
 }

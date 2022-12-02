@@ -35,21 +35,19 @@ public class objectClick : MonoBehaviour, IPointerClickHandler
         for(int i=0;i<11;i++){
             for(int j=0;j<11;j++){
             if(i*2 == thisPos.x && j*2 == parentPos.z){
-            print(StageAllay.TerrainStage[j,i] + "," + thisPos.x + "," + parentPos.z);
+            //print(StageAllay.TerrainStage[j,i] + "," + thisPos.x + "," + parentPos.z);
         if (StageAllay.DeployStage[j,i] == 0 && DeployProcess == 0){
             thisPos.z = parentPos.z;
             switch(trapType){
                 case 1:
                 if(StageAllay.TerrainStage[j,i] == 0){
                     thisPos.y = thisPos.y + 2.5f;
-                    Instantiate(DeployAllows, thisPos, Quaternion.identity);
                     DeployProcess = 1;
                 }
                 break;
                 case 2:
                 if(StageAllay.TerrainStage[j,i] == 1){
                     thisPos.y = thisPos.y + 3.5f;
-                    Instantiate(DeployAllows, thisPos, Quaternion.identity);
                     DeployProcess = 1;
                 }
                 break;
@@ -59,8 +57,8 @@ public class objectClick : MonoBehaviour, IPointerClickHandler
             
         switch(trapType){
             case 1:
-                thisPos.y = thisPos.y - 0.5f;
-                Instantiate (TrapObjFirewall, thisPos, Quaternion.identity);
+                thisPos.y = thisPos.y - 1.4f;
+                Instantiate (TrapObjFirewall, thisPos, Quaternion.AngleAxis(90,Vector3.forward));
                 StageAllay.DeployStage[j,i] = 1;
                 break;
             case 2:

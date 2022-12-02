@@ -34,6 +34,7 @@ public class EnemyController : MonoBehaviour
 		if(hp <= 0){
             //print(GameScore.CanonDamaged + "," + GameScore.FirewallDamaged);
 			Destroy(this.gameObject);
+            GameScore.EnemyDestruction++;
 		}
     }
     public void Damaged(int damage, int DamageType)
@@ -45,7 +46,8 @@ public class EnemyController : MonoBehaviour
         }
         
         hp = hp - damage;
-        print(hp);
+        GameScore.DamagedNumber++;
+        //print(hp);
         //Debug.Log("slider.value : " + slider.value);
 	}
     private void OnTriggerEnter(Collider other)
@@ -53,6 +55,7 @@ public class EnemyController : MonoBehaviour
 		if(other.gameObject.tag == "goalpoint")
 		{
             Destroy(this.gameObject);
+            GoalDurability.GoalDurabilityNum = GoalDurability.GoalDurabilityNum - 1;
 		}
     }
 }

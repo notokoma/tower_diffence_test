@@ -6,25 +6,30 @@ public class TrapCanon : MonoBehaviour
 {
     private GameObject[] targets;
     float closeDist;
-    float closeDistN = 5;
+    float CanonInterval;
+    float closeDistN = 7;
     GameObject closeEnemy;
     public GameObject nullnull;
+    GameObject BoomObj;
 
     // Start is called before the first frame update
     void Start()
     {
         closeEnemy = nullnull;
         closeDist = closeDistN;
-        StartCoroutine("CanonBoom");
+        BoomObj = (GameObject)Resources.Load ("CanonBoom");
     }
 
     // Update is called once per frame
     void Update()
     {
+        CanonInterval = CanonInterval + Time.deltaTime;
         targets = GameObject.FindGameObjectsWithTag("enemy");
         foreach (GameObject t in targets)
         {
- 
+        Transform myTransform = this.transform;
+        Vector3 thisPos = myTransform.position;
+
             // このオブジェクト（砲弾）と敵までの距離を計測
             float tDist = Vector3.Distance(transform.position, t.transform.position);
  
@@ -37,27 +42,20 @@ public class TrapCanon : MonoBehaviour
  
                 // 一番近い敵の情報をcloseEnemyという変数に格納する（★）
                 closeEnemy = t;
-                print(Vector3.Distance(transform.position, t.transform.position));
+                //print(Vector3.Distance(transform.position, t.transform.position));
+
+                if(closeEnemy != nullnull && CanonInterval >= 0.5f){
+                
+                Instantiate (BoomObj, thisPos, Quaternion.identity);
+                CanonBoomScript.destinationEnemy = closeEnemy;
+                CanonInterval = 0.0f;
+
+                }
             }
             if(closeDistN < tDist){
                 closeEnemy = nullnull;
-                StopCoroutine("CanonBoom");
             }
         }
         closeDist = closeDistN;
-    }
-    IEnumerator CanonBoom()
-    {
-        for(int i=0;i<1;i--){
-            Transform myTransform = this.transform;
-            Vector3 thisPos = myTransform.position;
-            print("a");
-            yield return new WaitForSeconds(1);
-            if(closeEnemy != nullnull){
-            GameObject BoomObj = (GameObject)Resources.Load ("CanonBoom");
-            Instantiate (BoomObj, thisPos, Quaternion.identity);
-            CanonBoomScript.destinationEnemy = closeEnemy;
-            }
-        }
     }
 }

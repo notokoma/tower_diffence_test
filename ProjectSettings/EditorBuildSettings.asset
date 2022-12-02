@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SceneGame.unity
     guid: 5c29b323168ca4707a0ebcf1944f6d67
+  - enabled: 1
+    path: Assets/Scenes/SceneInterval.unity
+    guid: 35c4066e4e2354e33ae4dbe3b174d9d4
+  - enabled: 1
+    path: Assets/Scenes/SceneLose.unity
+    guid: 163992c3e47504959a3d57a15c9414da
   m_configObjects: {}
