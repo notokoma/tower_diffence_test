@@ -8,10 +8,11 @@ public class EnemyController : MonoBehaviour
 {
     NavMeshAgent Enemy_Nav;
     GameObject Destination;
-    int maxHp = 100;
+    public int maxHp = 100;
     int Def = 10;
     int DefMagic = 5;
-    int hp;
+    public int hp;
+    public Slider slider;
 
     void Start()
     {
@@ -24,6 +25,8 @@ public class EnemyController : MonoBehaviour
 
         this.Enemy_Nav.speed = 2.0f;
         //Debug.Log("Start currentHp : " + hp);
+
+        slider.value = 1;
     }
 
     void Update()
@@ -49,6 +52,8 @@ public class EnemyController : MonoBehaviour
         GameScore.DamagedNumber++;
         //print(hp);
         //Debug.Log("slider.value : " + slider.value);
+        slider.value = (float)hp / (float)maxHp;
+
 	}
     private void OnTriggerEnter(Collider other)
     {
