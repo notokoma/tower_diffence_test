@@ -10,7 +10,7 @@ public class ButtonBuff : MonoBehaviour
         ButtonSelect1 = GameObject.Find("ButtonBuff1");
         ButtonSelect2 = GameObject.Find("ButtonBuff2");
         ButtonSelect3 = GameObject.Find("ButtonBuff3");
-        ButtonSelectPrimal = GameObject.Find("ButtonBuffMaster");
+        ButtonSelectPrimal = GameObject.Find("ButtonBuffMaster(Clone)");
 
         if(ButtonSelect1 == this.gameObject && BuffSelect.ButtonBuff1 == -1){
             Destroy(this.gameObject);
@@ -37,5 +37,6 @@ public class ButtonBuff : MonoBehaviour
             TrapBuffs.Buffs[BuffSelect.ButtonBuff3] = true;
             Destroy(ButtonSelectPrimal);
         }
+
     }
 }

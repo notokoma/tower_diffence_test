@@ -18,8 +18,71 @@ public class BuffSelect : MonoBehaviour
         switch(GameScore.StageNumber)
         {
             case 0:
+            ButtonBuff1 = 0;
+            ButtonBuff2 = 1;
+            ButtonBuff3 = 2;
+            break;
+
+            case 1:
+            switch(RandomNumber.randomSeed1 % 3)
+            {
+            case 0:
+            ButtonBuff1 = 2;
+            if(ButtonBuff1 != -1){
+                while(TrapBuffs.Buffs[ButtonBuff1] == true){
+                    if(RandomNumber.randomSeed1 % 2 == 0){
+                        ButtonBuff1--;
+                    }
+                    if(RandomNumber.randomSeed1 % 2 == 1){
+                        ButtonBuff1--;
+                    }
+                    if(ButtonBuff1 == 30 || ButtonBuff1 == -1){
+                        ButtonBuff1 = -1;
+                        break;
+                    }
+                }
+            }
             break;
             case 1:
+            ButtonBuff1 = 5;
+            if(ButtonBuff1 != -1){
+                while(TrapBuffs.Buffs[ButtonBuff1] == true){
+                if(RandomNumber.randomSeed1 % 2 == 0){
+                    ButtonBuff1--;
+                }
+                if(RandomNumber.randomSeed1 % 2 == 1){
+                    ButtonBuff1--;
+                }
+                if(ButtonBuff1 == 30 || ButtonBuff1 == -1){
+                    ButtonBuff1 = -1;
+                    break;
+                }
+                }
+            }
+            break;
+            case 2:
+            ButtonBuff1 = 8;
+            if(ButtonBuff1 != -1){
+                while(TrapBuffs.Buffs[ButtonBuff1] == true){
+                if(RandomNumber.randomSeed1 % 2 == 0){
+                    ButtonBuff1--;
+                }
+                if(RandomNumber.randomSeed1 % 2 == 1){
+                    ButtonBuff1--;
+                }
+                if(ButtonBuff1 == 30 || ButtonBuff1 == -1){
+                    ButtonBuff1 = -1;
+                    break;
+                }
+                }
+            }
+            break;
+            }
+
+
+            break;
+            
+            case 2:
             switch(RandomNumber.randomSeed1 % 6)
             {
             case 0:
@@ -125,8 +188,6 @@ public class BuffSelect : MonoBehaviour
                 }
                 break;
             }
-            break;
-            case 2:
             break;
         }
     }
