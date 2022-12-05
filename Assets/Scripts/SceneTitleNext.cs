@@ -16,6 +16,6 @@ public class SceneTitleNext : MonoBehaviour
     {
         TitleNextSound.SoundFlag1 = true;
         //切り替える
-        SceneManager.LoadScene("SceneGame");
+        SceneManager.LoadScene("SceneInterval");
     }
 }

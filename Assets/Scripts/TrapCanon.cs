@@ -7,7 +7,7 @@ public class TrapCanon : MonoBehaviour
     private GameObject[] targets;
     float closeDist;
     float CanonInterval;
-    float closeDistN = 7;
+    float closeDistN = 6.0f;
     GameObject closeEnemy;
     public GameObject nullnull;
     GameObject BoomObj;

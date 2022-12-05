@@ -37,19 +37,20 @@ public class EnemyController : MonoBehaviour
 		if(hp <= 0){
             //print(GameScore.CanonDamaged + "," + GameScore.FirewallDamaged);
 			Destroy(this.gameObject);
-            GameScore.EnemyDestruction++;
+            GameTimeline.EnemyDestruction++;
 		}
     }
     public void Damaged(int damage, int DamageType)
 	{
         if(DamageType == 1){
             damage = damage - Def;
+            GameScore.PhysicsDamaged[GameScore.StageNumber] = GameScore.PhysicsDamaged[GameScore.StageNumber] + damage;
         } else if(DamageType == 2){
             damage = damage * 100 / (100-DefMagic);
+            GameScore.MagicDamaged[GameScore.StageNumber] = GameScore.MagicDamaged[GameScore.StageNumber] + damage;
         }
-        
         hp = hp - damage;
-        GameScore.DamagedNumber++;
+        GameScore.DamagedNumber[GameScore.StageNumber]++;
         //print(hp);
         //Debug.Log("slider.value : " + slider.value);
         slider.value = (float)hp / (float)maxHp;

@@ -8,8 +8,8 @@ public class GameTimeline : MonoBehaviour
     float SpawnTimecounter;
     public static bool deployTime;
     bool spawn;
-
     public static int EnemySpawnNumber;
+    public static int EnemyDestruction;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +18,8 @@ public class GameTimeline : MonoBehaviour
         SpawnTimecounter = 0.0f;
         spawn = true;
         deployTime = true;
+        EnemyDestruction = 0;
+        print(GameScore.StageNumber);
     }
 
     // Update is called once per frame
@@ -25,6 +27,7 @@ public class GameTimeline : MonoBehaviour
     {
         if(deployTime == false){
             SpawnTimecounter = SpawnTimecounter + Time.deltaTime;
+            GameScore.ClearTime[GameScore.StageNumber] = GameScore.ClearTime[GameScore.StageNumber] + Time.deltaTime;
         }
 
         //print(timecounter);
@@ -39,7 +42,16 @@ public class GameTimeline : MonoBehaviour
     }
         spawn = false;
         }
-        if(EnemySpawnNumber == GameScore.EnemyDestruction){
+        if(EnemySpawnNumber == EnemyDestruction){
+            deployTime = true;
+
+            /*
+            print(GameScore.ClearTime[GameScore.StageNumber] 
+            + "," + GameScore.MagicDamaged[GameScore.StageNumber]
+            + "," + GameScore.PhysicsDamaged[GameScore.StageNumber]
+            + "," + GameScore.DamagedNumber[GameScore.StageNumber]);
+            */
+
             SceneManager.LoadScene("SceneInterval");
         }
     }

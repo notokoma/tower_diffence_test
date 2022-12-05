@@ -6,8 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneIntervalNext : MonoBehaviour
 {
     public void OnClick(){
-        GameScore.EnemyDestruction = 0;
-
+        GameScore.StageNumber++;
         SceneManager.LoadScene("SceneGame");
     }
 }
