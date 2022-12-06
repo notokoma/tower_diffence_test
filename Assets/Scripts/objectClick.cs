@@ -65,6 +65,7 @@ public class objectClick : MonoBehaviour, IPointerClickHandler
                 }
             }
         }
+        
         trapType = 0;
         Time.timeScale = 1.0f;
     }
