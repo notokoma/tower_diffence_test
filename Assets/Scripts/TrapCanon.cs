@@ -29,7 +29,7 @@ public class TrapCanon : MonoBehaviour
                     break;
 
                     case 7:
-                    CanonIntervalMax = CanonIntervalMax * 0.8f;
+                    CanonIntervalMax = CanonIntervalMax * 0.9f;
                     break;    
 
                     case 8:
@@ -37,7 +37,7 @@ public class TrapCanon : MonoBehaviour
                     break;
 
                     case 10:
-                    CanonIntervalMax = CanonIntervalMax * 0.8f;
+                    CanonIntervalMax = CanonIntervalMax * 0.9f;
                     break;
 
                     case 15:
@@ -49,7 +49,7 @@ public class TrapCanon : MonoBehaviour
                     break;
 
                     case 22:
-                    CanonIntervalMax = CanonIntervalMax * 1.6f;
+                    CanonIntervalMax = CanonIntervalMax * 1.8f;
                     break;
 
                     default:

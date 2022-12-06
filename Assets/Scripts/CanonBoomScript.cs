@@ -12,34 +12,37 @@ public class CanonBoomScript : MonoBehaviour
     int damageCanonBoom;
     int damageCanonBoomPrimal = 50;
     int Damagebuffs = 0;
-    float CanonBoomRadius;
+    float CanonBoomRadius = 0.15f;
     int i;
     bool CanonBoomEX;
+    int layerEnemy;
+    Collider[] Booms;
     // Start is called before the first frame update
     void Start()
     {
+        layerEnemy = LayerMask.NameToLayer("Enemy");
         CanonBoomEX = false;
         while(i<30){
             if(TrapBuffs.Buffs[i] == true){
                 switch(i){
                     case 4:
-                    Damagebuffs = Damagebuffs + 30;
+                    Damagebuffs = Damagebuffs + 20;
                     break;
 
                     case 5:
-                    Damagebuffs = Damagebuffs + 30;
+                    Damagebuffs = Damagebuffs + 20;
                     break;
 
                     case 6:
-                    CanonBoomRadius = CanonBoomRadius + 0.5f;
+                    CanonBoomRadius = CanonBoomRadius + 0.25f;
                     break;
 
                     case 8:
-                    CanonBoomRadius = CanonBoomRadius + 0.5f;
+                    CanonBoomRadius = CanonBoomRadius + 0.25f;
                     break;
 
                     case 9:
-                    Damagebuffs = Damagebuffs + 30;
+                    Damagebuffs = Damagebuffs + 20;
                     break;    
 
                     case 14:
@@ -65,11 +68,11 @@ public class CanonBoomScript : MonoBehaviour
                     break;
 
                     case 22:
-                    Damagebuffs = Damagebuffs + 100;
+                    Damagebuffs = Damagebuffs + 80;
                     break;
 
                     case 25:
-                    CanonBoomRadius = CanonBoomRadius + 0.5f;
+                    CanonBoomRadius = CanonBoomRadius + 0.25f;
                     break;
 
                     default:
@@ -89,11 +92,21 @@ public class CanonBoomScript : MonoBehaviour
     {
         float step = speedB * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, destinationEnemyT, step);
+
+        Booms = Physics.OverlapSphere(this.transform.position, CanonBoomRadius, 1 << layerEnemy);
     }
     private void OnTriggerEnter(Collider other)
     {
 		if(other.gameObject.tag == "enemy")
 		{
+            if(CanonBoomEX == true){
+                foreach (Collider Boom in Booms)
+		        {
+                    if(Boom.gameObject.tag == "enemy"){
+                        Boom.gameObject.GetComponent<EnemyController>().Damaged(damageCanonBoom - 40,DamageTypeCanon);
+                    }
+                }
+            }
 			other.gameObject.GetComponent<EnemyController>().Damaged(damageCanonBoom,DamageTypeCanon);
             Destroy(this.gameObject);
 		}else if(other.gameObject.tag == "ground"){

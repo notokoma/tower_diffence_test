@@ -14,7 +14,7 @@ public class TrapPulsar : MonoBehaviour
     int DamageTypePulsar = 2;
     float PulsarRadius = 3.5f;
     float PulsarFreezeTime = 1.5f;
-    float PulsarFreezeEffect = 0.75f;
+    float PulsarFreezeEffect = 0.5f;
     int layera;
     int Damagebuffs;
     bool PulsarEX;
@@ -47,7 +47,11 @@ public class TrapPulsar : MonoBehaviour
                     break;
 
 					case 7:
-                    PulsarIntervalMax = PulsarIntervalMax * 0.7f;
+                    PulsarIntervalMax = PulsarIntervalMax * 0.8f;
+                    break;
+
+                    case 8:
+                    PulsarRadius = PulsarRadius + 0.8f;
                     break;
 
                     case 9:
@@ -55,7 +59,7 @@ public class TrapPulsar : MonoBehaviour
                     break;
 
                     case 10:
-                    PulsarIntervalMax = PulsarIntervalMax * 0.7f;
+                    PulsarIntervalMax = PulsarIntervalMax * 0.8f;
                     break;
 
                     case 17:
@@ -70,7 +74,7 @@ public class TrapPulsar : MonoBehaviour
 
                     case 19:
 					PulsarEX = true;
-                    PulsarFreezeEffect = PulsarFreezeEffect - 0.25f;
+                    PulsarFreezeEffect = PulsarFreezeEffect + 0.25f;
                     break;
 
 					case 20:
@@ -82,12 +86,12 @@ public class TrapPulsar : MonoBehaviour
                     break;
 					
 					case 23:
-                    PulsarIntervalMax = PulsarIntervalMax * 0.7f;
+                    PulsarIntervalMax = PulsarIntervalMax * 0.8f;
                     break;
 
                     case 24:
                     Damagebuffs = Damagebuffs + 50;
-                    PulsarIntervalMax = PulsarIntervalMax * 0.7f;
+                    PulsarIntervalMax = PulsarIntervalMax * 0.5f;
                     PulsarRadius = PulsarRadius - 1.0f;
                     break;
 
@@ -101,6 +105,8 @@ public class TrapPulsar : MonoBehaviour
             }
             i++;
         }
+
+        damagePulsar = damagePulsarPrimal +Damagebuffs;
     }
 
     // Update is called once per frame
@@ -115,8 +121,13 @@ public class TrapPulsar : MonoBehaviour
 		    {
                 if(target.gameObject.tag == "enemy")
                 {
-                    target.gameObject.GetComponent<EnemyController>().Damaged(damagePulsar,DamageTypePulsar);
                     LightOn = true;
+                    if(PulsarEX == true){
+                        target.gameObject.GetComponent<EnemyController>().Damaged(damagePulsar,DamageTypePulsar);
+                        target.gameObject.GetComponent<EnemyController>().Debuffed(1,PulsarFreezeTime,PulsarFreezeEffect,0);
+                    } else {
+                        target.gameObject.GetComponent<EnemyController>().Damaged(damagePulsar,DamageTypePulsar);
+                    }
                 }
             }
             PulsarInterval = 0.0f;

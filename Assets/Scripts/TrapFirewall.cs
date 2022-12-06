@@ -7,10 +7,10 @@ public class TrapFirewall : MonoBehaviour
 	int damageFirewall;
 	int damageFirewallPrimal = 50;
 	bool FirewallEX;
-	float damageBurn;
+	int damageBurn;
 	float damageBurnPrimal = 10; 
-	float damageBurnInterval;
-	float damageBurnIntervalMax = 0.5f;
+	float damageBurnIntervalMax = 1.4f;
+    float damageBurnTime = 3.0f;
 	int DamageTypeFirewall = 2;
 	int Damagebuffs;
 
@@ -23,11 +23,11 @@ public class TrapFirewall : MonoBehaviour
                 switch(i){
 
                     case 4:
-                    Damagebuffs = Damagebuffs + 40;
+                    Damagebuffs = Damagebuffs + 30;
                     break;
 
                     case 5:
-                    Damagebuffs = Damagebuffs + 40;
+                    Damagebuffs = Damagebuffs + 30;
                     break;    
 
 					case 7:
@@ -35,7 +35,7 @@ public class TrapFirewall : MonoBehaviour
                     break;
 
                     case 9:
-                    Damagebuffs = Damagebuffs + 40;
+                    Damagebuffs = Damagebuffs + 30;
                     break;
 
                     case 10:
@@ -54,7 +54,7 @@ public class TrapFirewall : MonoBehaviour
 
                     case 13:
 					FirewallEX = true;
-                    damageBurnIntervalMax = damageBurnIntervalMax * 0.5f;
+                    damageBurnIntervalMax = damageBurnIntervalMax * 0.6f;
                     break;
 
 					case 20:
@@ -77,7 +77,7 @@ public class TrapFirewall : MonoBehaviour
         }
 
 		damageFirewall = damageFirewallPrimal + Damagebuffs; 
-		damageBurn = damageBurnPrimal + (float)Damagebuffs * 0.2f;
+		damageBurn = Mathf.RoundToInt(damageBurnPrimal + (float)Damagebuffs * 0.15f);
 
     }
 
@@ -86,7 +86,13 @@ public class TrapFirewall : MonoBehaviour
     {
 		if(other.gameObject.tag == "enemy")
 		{
-			other.gameObject.GetComponent<EnemyController>().Damaged(damageFirewall,DamageTypeFirewall);
+            if(FirewallEX == true){
+                other.gameObject.GetComponent<EnemyController>().Damaged(damageFirewall,DamageTypeFirewall);
+                other.gameObject.GetComponent<EnemyController>().Debuffed(0,damageBurnTime,damageBurnIntervalMax,damageBurn);
+            } else {
+                other.gameObject.GetComponent<EnemyController>().Damaged(damageFirewall,DamageTypeFirewall);
+            }
+			
 		}
     }
 }

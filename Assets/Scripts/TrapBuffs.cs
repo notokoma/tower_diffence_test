@@ -11,7 +11,7 @@ public class TrapBuffs : MonoBehaviour
     {
         DontDestroyOnLoad(this);
         while(i < 30){
-            Buffs[i] = false;
+            Buffs[i] = true;
             i++;
         }
     }
@@ -19,6 +19,8 @@ public class TrapBuffs : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        Buffs[20] = false;
+        //Buffs[22] = false;
+        Buffs[24] = false;
     }
 }
