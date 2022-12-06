@@ -1,19 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ButtonBuff : MonoBehaviour
 {
-    GameObject ButtonSelect1,ButtonSelectTextExp1,ButtonSelect2,ButtonSelectTextExp2,
-    ButtonSelect3,ButtonSelectTextExp3,ButtonSelectPrimal;
+    GameObject ButtonSelect1,ButtonSelect2,ButtonSelect3,ButtonSelectPrimal;
+    TextMeshProUGUI ButtonSelectTextExp1,ButtonSelectTextExp2,ButtonSelectTextExp3;
     
     void Start(){
         ButtonSelect1 = GameObject.Find("ButtonBuff1");
-        ButtonSelectTextExp1 = GameObject.Find("ButtonBuffTextExp1");
+        ButtonSelectTextExp1 = GameObject.Find("ButtonBuffTextExp1").GetComponent<TextMeshProUGUI>();
         ButtonSelect2 = GameObject.Find("ButtonBuff2");
-        ButtonSelectTextExp2 = GameObject.Find("ButtonBuffTextExp2");
+        ButtonSelectTextExp2 = GameObject.Find("ButtonBuffTextExp2").GetComponent<TextMeshProUGUI>();
         ButtonSelect3 = GameObject.Find("ButtonBuff3");
-        ButtonSelectTextExp3 = GameObject.Find("ButtonBuffTextExp3");
+        ButtonSelectTextExp3 = GameObject.Find("ButtonBuffTextExp3").GetComponent<TextMeshProUGUI>();
         ButtonSelectPrimal = GameObject.Find("ButtonBuffMaster(Clone)");
 
         if(ButtonSelect1 == this.gameObject && BuffSelect.ButtonBuff1 == -1){
@@ -43,6 +44,5 @@ public class ButtonBuff : MonoBehaviour
             TrapBuffs.Buffs[BuffSelect.ButtonBuff3] = true;
             Destroy(ButtonSelectPrimal);
         }
-
     }
 }

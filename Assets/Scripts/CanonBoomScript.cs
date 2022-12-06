@@ -8,22 +8,72 @@ public class CanonBoomScript : MonoBehaviour
     public static GameObject destinationEnemy;
     public static int DamageTypeCanon = 1;
     Vector3 destinationEnemyT;
+    int CanonBoomLevel;
     int damageCanonBoom;
     int damageCanonBoomPrimal = 50;
     int Damagebuffs = 0;
+    float CanonBoomRadius;
     int i;
+    bool CanonBoomEX;
     // Start is called before the first frame update
     void Start()
     {
-        while(i<9){
+        CanonBoomEX = false;
+        while(i<30){
             if(TrapBuffs.Buffs[i] == true){
                 switch(i){
-                    case 3:
-                    Damagebuffs = Damagebuffs + 20;
+                    case 4:
+                    Damagebuffs = Damagebuffs + 30;
+                    break;
+
+                    case 5:
+                    Damagebuffs = Damagebuffs + 30;
+                    break;
+
+                    case 6:
+                    CanonBoomRadius = CanonBoomRadius + 0.5f;
+                    break;
+
+                    case 8:
+                    CanonBoomRadius = CanonBoomRadius + 0.5f;
+                    break;
+
+                    case 9:
+                    Damagebuffs = Damagebuffs + 30;
+                    break;    
+
+                    case 14:
+                    CanonBoomEX = true;
+                    Damagebuffs = Damagebuffs + 50;
+                    break;
+
+                    case 15:
+                    CanonBoomEX = true;
+                    CanonBoomRadius = CanonBoomRadius + 0.75f;
+                    break;
+
+                    case 16:
+                    CanonBoomEX = true;
+                    break;
+
+                    case 20:
+                    Damagebuffs = Damagebuffs - 50;
+                    break;
+
+                    case 21:
+                    Damagebuffs = Damagebuffs + 40;
+                    break;
+
+                    case 22:
+                    Damagebuffs = Damagebuffs + 100;
+                    break;
+
+                    case 25:
+                    CanonBoomRadius = CanonBoomRadius + 0.5f;
                     break;
 
                     default:
-                    break;    
+                    break;
                 }
             }
             i++;

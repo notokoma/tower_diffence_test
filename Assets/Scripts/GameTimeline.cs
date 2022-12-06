@@ -52,6 +52,7 @@ public class GameTimeline : MonoBehaviour
             + "," + GameScore.DamagedNumber[GameScore.StageNumber]);
             */
 
+            
             SceneManager.LoadScene("SceneInterval");
         }
     }

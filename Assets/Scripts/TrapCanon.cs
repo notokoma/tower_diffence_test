@@ -5,9 +5,13 @@ using UnityEngine;
 public class TrapCanon : MonoBehaviour
 {
     private GameObject[] targets;
+    public static int CanonLevel;
     float closeDist;
     float CanonInterval;
-    float closeDistN = 6.0f;
+    float CanonIntervalMax = 0.8f;
+    float closeDistN;
+    float closeDistNPrimal = 4.5f;
+    float closeDistBuff;
     GameObject closeEnemy;
     public GameObject nullnull;
     GameObject BoomObj;
@@ -15,7 +19,47 @@ public class TrapCanon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        int i=0;
+        while(i<30){
+            if(TrapBuffs.Buffs[i] == true){
+                switch(i){
+
+                    case 6:
+                    closeDistBuff = closeDistBuff + 0.75f;
+                    break;
+
+                    case 7:
+                    CanonIntervalMax = CanonIntervalMax * 0.8f;
+                    break;    
+
+                    case 8:
+                    closeDistBuff = closeDistBuff + 0.75f;
+                    break;
+
+                    case 10:
+                    CanonIntervalMax = CanonIntervalMax * 0.8f;
+                    break;
+
+                    case 15:
+                    closeDistBuff = closeDistBuff + 2f;
+                    break;
+
+                    case 16:
+                    CanonIntervalMax = CanonIntervalMax * 0.5f;
+                    break;
+
+                    case 22:
+                    CanonIntervalMax = CanonIntervalMax * 1.6f;
+                    break;
+
+                    default:
+                    break;
+                }
+            }
+            i++;
+        }
         closeEnemy = nullnull;
+        closeDistN = closeDistNPrimal + closeDistBuff;
         closeDist = closeDistN;
         BoomObj = (GameObject)Resources.Load ("CanonBoom");
     }
@@ -44,7 +88,7 @@ public class TrapCanon : MonoBehaviour
                 closeEnemy = t;
                 //print(Vector3.Distance(transform.position, t.transform.position));
 
-                if(closeEnemy != nullnull && CanonInterval >= 0.5f){
+                if(closeEnemy != nullnull && CanonInterval >= CanonIntervalMax){
                 
                 Instantiate (BoomObj, thisPos, Quaternion.identity);
                 CanonBoomScript.destinationEnemy = closeEnemy;

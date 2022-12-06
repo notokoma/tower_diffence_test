@@ -4,8 +4,84 @@ using UnityEngine;
 
 public class TrapFirewall : MonoBehaviour
 {
-	int damageFirewall = 50;
+	int damageFirewall;
+	int damageFirewallPrimal = 50;
+	bool FirewallEX;
+	float damageBurn;
+	float damageBurnPrimal = 10; 
+	float damageBurnInterval;
+	float damageBurnIntervalMax = 0.5f;
 	int DamageTypeFirewall = 2;
+	int Damagebuffs;
+
+	void Start()
+    {
+		FirewallEX = false;
+        int i=0;
+        while(i<30){
+            if(TrapBuffs.Buffs[i] == true){
+                switch(i){
+
+                    case 4:
+                    Damagebuffs = Damagebuffs + 40;
+                    break;
+
+                    case 5:
+                    Damagebuffs = Damagebuffs + 40;
+                    break;    
+
+					case 7:
+                    damageBurnIntervalMax = damageBurnIntervalMax * 0.8f;
+                    break;
+
+                    case 9:
+                    Damagebuffs = Damagebuffs + 40;
+                    break;
+
+                    case 10:
+                    damageBurnIntervalMax = damageBurnIntervalMax * 0.8f;
+                    break;
+
+                    case 11:
+					FirewallEX = true;
+                    damageBurnPrimal = damageBurnPrimal + 5;
+                    break;
+
+                    case 12:
+					FirewallEX = true;
+                    damageFirewallPrimal = damageFirewallPrimal + 80;
+                    break;
+
+                    case 13:
+					FirewallEX = true;
+                    damageBurnIntervalMax = damageBurnIntervalMax * 0.5f;
+                    break;
+
+					case 20:
+                    Damagebuffs = Damagebuffs + 100;
+                    break;
+
+					case 21:
+                    Damagebuffs = Damagebuffs + 40;
+                    break;
+					
+					case 23:
+                    damageBurnIntervalMax = damageBurnIntervalMax * 0.8f;
+                    break;
+
+                    default:
+                    break;
+                }
+            }
+            i++;
+        }
+
+		damageFirewall = damageFirewallPrimal + Damagebuffs; 
+		damageBurn = damageBurnPrimal + (float)Damagebuffs * 0.2f;
+
+    }
+
+
     private void OnTriggerEnter(Collider other)
     {
 		if(other.gameObject.tag == "enemy")

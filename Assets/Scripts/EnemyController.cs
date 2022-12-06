@@ -9,8 +9,10 @@ public class EnemyController : MonoBehaviour
     NavMeshAgent Enemy_Nav;
     GameObject Destination;
     public int maxHp = 100;
-    int Def = 10;
-    int DefMagic = 5;
+    int Def;
+    int maxDef = 10;
+    int DefMagic;
+    int maxDefMagic = 0;
     public int hp;
     public Slider slider;
 
@@ -21,6 +23,10 @@ public class EnemyController : MonoBehaviour
         //目的地のオブジェクトを取得
         Destination = GameObject.FindWithTag("goalpoint");
 
+        
+
+        Def = maxDef;
+        DefMagic = maxDefMagic;
         hp = maxHp;
 
         this.Enemy_Nav.speed = 2.0f;
