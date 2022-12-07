@@ -52,8 +52,11 @@ public class GameTimeline : MonoBehaviour
             + "," + GameScore.DamagedNumber[GameScore.StageNumber]);
             */
 
-            
-            SceneManager.LoadScene("SceneInterval");
+            if(GameScore.StageNumber == 9){
+                SceneManager.LoadScene("SceneClear");
+            } else {
+                SceneManager.LoadScene("SceneInterval");
+            }
         }
     }
 }

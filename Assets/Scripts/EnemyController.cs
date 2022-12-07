@@ -10,7 +10,7 @@ public class EnemyController : MonoBehaviour
     GameObject Destination;
     public int maxHp;
     int Def;
-    int maxDef = 180;
+    int maxDef = 10;
     int DefMagic;
     int maxDefMagic = 0;
     float speed;
@@ -44,7 +44,7 @@ public class EnemyController : MonoBehaviour
         Def = maxDef;
         DefMagic = maxDefMagic;
 
-        maxHp = 1000;
+        maxHp = 100;
         hp = maxHp;
 
         //Debug.Log("Start currentHp : " + hp);

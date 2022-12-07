@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SceneLose.unity
     guid: 163992c3e47504959a3d57a15c9414da
+  - enabled: 1
+    path: Assets/Scenes/SceneClear.unity
+    guid: 9ee290ff7e748402086ee51d365b83df
   m_configObjects: {}
