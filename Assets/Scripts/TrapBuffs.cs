@@ -19,6 +19,12 @@ public class TrapBuffs : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+<<<<<<< Updated upstream
 
+=======
+        //Buffs[20] = false;
+        //Buffs[22] = false;
+        //Buffs[24] = false;
+>>>>>>> Stashed changes
     }
 }
