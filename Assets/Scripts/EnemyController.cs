@@ -59,6 +59,8 @@ public class EnemyController : MonoBehaviour
     {
         //目的地を設定
         Enemy_Nav.SetDestination(Destination.transform.position);
+        NavMeshPath path = Enemy_Nav.path; //経路パス（曲がり角座標のVector3配列）を取得
+        Vector3 corner = transform.position; //自分の現在位置
         if(burn == true){
             burnInterval = burnInterval + Time.deltaTime;
             burnEffectTime = burnEffectTime + Time.deltaTime;
@@ -86,32 +88,29 @@ public class EnemyController : MonoBehaviour
 
 		if(hp <= 0){
             //print(GameScore.CanonDamaged + "," + GameScore.FirewallDamaged);
+            for (int i = 0; i < path.corners.Length; i++){
+                Vector3 corner2 = path.corners[i];
+                dist += Vector3.Distance(corner, corner2);
+                corner = corner2;
+            }
             GameScore.EnemyDestination[GameScore.EnemyNumber] = dist;
+            dist = 0;
+            print(GameScore.EnemyDestination[GameScore.EnemyNumber]);
             GameTimeline.EnemyDestruction++;
 			Destroy(this.gameObject);
 		}
-
-        NavMeshPath path = Enemy_Nav.path; //経路パス（曲がり角座標のVector3配列）を取得
-        Vector3 corner = transform.position; //自分の現在位置
-        //曲がり角間の距離を累積していく
-        for (int i = 0; i < path.corners.Length; i++){
-            Vector3 corner2 = path.corners[i];
-            dist += Vector3.Distance(corner, corner2);
-            corner = corner2;
-        }
-        dist = 0;
     }
     public void Damaged(int damage, int DamageType)
 	{
         if(DamageType == 1){
             damage = damage - Def;
-            print(damage);
+            //print(damage);
             if(damage >= 0){
                 GameScore.PhysicsDamaged[GameScore.StageNumber] = GameScore.PhysicsDamaged[GameScore.StageNumber] + damage;
             }
         } else if(DamageType == 2){
             damage = damage * (100-DefMagic) / 100;
-            print(damage);
+            //print(damage);
             GameScore.MagicDamaged[GameScore.StageNumber] = GameScore.MagicDamaged[GameScore.StageNumber] + damage;
         }
         if(damage >= 0){
