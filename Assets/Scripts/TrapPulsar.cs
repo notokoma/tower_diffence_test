@@ -8,6 +8,7 @@ public class TrapPulsar : MonoBehaviour
     float PulsarInterval;
     float PulsarIntervalMax = 2.3f;
     float LightInterval;
+    float IntervalStartRandom;
     bool LightOn = false;
     int damagePulsar;
     int damagePulsarPrimal = 40;
@@ -106,7 +107,10 @@ public class TrapPulsar : MonoBehaviour
             i++;
         }
 
+        IntervalStartRandom = Random.Range(0.1f,PulsarIntervalMax - 0.1f);
+        PulsarInterval = IntervalStartRandom;
         damagePulsar = damagePulsarPrimal +Damagebuffs;
+        
     }
 
     // Update is called once per frame

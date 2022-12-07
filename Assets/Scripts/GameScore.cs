@@ -8,7 +8,8 @@ public class GameScore : MonoBehaviour
     public static int[] PhysicsDamaged = new int[10];
     public static int[] DamagedNumber = new int[10];
     public static float[] ClearTime = new float[10];
-    public static int Gold,StageNumber,life;
+    public static int Gold,StageNumber,life,EnemyNumber;
+    public static float[] EnemyDestination = new float[50];
 
     // Start is called before the first frame update
     void Start()

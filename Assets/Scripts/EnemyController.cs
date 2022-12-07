@@ -15,6 +15,7 @@ public class EnemyController : MonoBehaviour
     int maxDefMagic = 0;
     float speed;
     float speedMax = 2.0f;
+    float dist = 0f;
     
     bool freeze = false;
     float freezeEffectTime;
@@ -30,9 +31,11 @@ public class EnemyController : MonoBehaviour
 
     public int hp;
     public Slider slider;
+    public float remainingDistance;
 
     void Start()
     {
+        GameScore.EnemyNumber++;
         //プレイヤーのNavMeshAgentを取得
         Enemy_Nav = GetComponent<NavMeshAgent>();
         //目的地のオブジェクトを取得
@@ -56,7 +59,6 @@ public class EnemyController : MonoBehaviour
     {
         //目的地を設定
         Enemy_Nav.SetDestination(Destination.transform.position);
-
         if(burn == true){
             burnInterval = burnInterval + Time.deltaTime;
             burnEffectTime = burnEffectTime + Time.deltaTime;
@@ -84,9 +86,20 @@ public class EnemyController : MonoBehaviour
 
 		if(hp <= 0){
             //print(GameScore.CanonDamaged + "," + GameScore.FirewallDamaged);
-			Destroy(this.gameObject);
+            GameScore.EnemyDestination[GameScore.EnemyNumber] = dist;
             GameTimeline.EnemyDestruction++;
+			Destroy(this.gameObject);
 		}
+
+        NavMeshPath path = Enemy_Nav.path; //経路パス（曲がり角座標のVector3配列）を取得
+        Vector3 corner = transform.position; //自分の現在位置
+        //曲がり角間の距離を累積していく
+        for (int i = 0; i < path.corners.Length; i++){
+            Vector3 corner2 = path.corners[i];
+            dist += Vector3.Distance(corner, corner2);
+            corner = corner2;
+        }
+        dist = 0;
     }
     public void Damaged(int damage, int DamageType)
 	{
