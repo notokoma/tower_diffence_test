@@ -1390,7 +1390,7 @@ GameObject:
   - component: {fileID: 129358314}
   m_Layer: 5
   m_Name: descrive
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3345,7 +3345,7 @@ GameObject:
   - component: {fileID: 303279314}
   m_Layer: 5
   m_Name: weapon_frame
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19658,7 +19658,7 @@ GameObject:
   - component: {fileID: 1957861258}
   m_Layer: 5
   m_Name: description_frame
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

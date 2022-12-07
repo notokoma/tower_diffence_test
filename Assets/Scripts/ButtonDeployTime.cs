@@ -9,7 +9,7 @@ public class ButtonDeployTime : MonoBehaviour
     public void OnClick()
     {
         GameTimeline.deployTime = false;
-        buttons = GameObject.FindGameObjectsWithTag("destroy_for_start");
+        buttons = GameObject.FindGameObjectsWithTag("Button");
         
         foreach (GameObject b in buttons){
             Destroy(b);
