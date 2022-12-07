@@ -12,8 +12,8 @@ public class GameTimeline : MonoBehaviour
     public static int EnemySpawnNumber;
     public static int EnemyDestruction;
 
-    public float minTime =0.5f; //時間間隔の最小値
-    public float maxTime = 7f; //時間間隔の最大値
+    public float minTime =0.1f; //時間間隔の最小値
+    public float maxTime = 2.0f; //時間間隔の最大値
     private float interval;
     private float time = 0f;
 
@@ -40,7 +40,7 @@ public class GameTimeline : MonoBehaviour
         }
 
         time += Time.deltaTime;
-        print(interval);
+        //print(interval);
 
         if(time >= interval && spawncounter < 5 && spawn == true && SpawnTimecounter >= 3.0f){
             GameObject StartingPoint = GameObject.Find("enemyspawnpoint");
@@ -57,12 +57,12 @@ public class GameTimeline : MonoBehaviour
         if(EnemySpawnNumber == EnemyDestruction){ //全部破壊したら
             deployTime = true;
 
-            /*
+            
             print(GameScore.ClearTime[GameScore.StageNumber] 
             + "," + GameScore.MagicDamaged[GameScore.StageNumber]
             + "," + GameScore.PhysicsDamaged[GameScore.StageNumber]
             + "," + GameScore.DamagedNumber[GameScore.StageNumber]);
-            */
+            
 
             if(GameScore.StageNumber == 9){ //クリアしたとき
                 SceneManager.LoadScene("SceneClear");
