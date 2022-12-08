@@ -9,12 +9,13 @@ public class GameScore : MonoBehaviour
     public static int[] DamagedNumber = new int[10];
     public static float[] ClearTime = new float[10];
     public static int Gold,StageNumber,life,EnemyNumber;
-    public static float[] EnemyDestination = new float[50];
+    public static float[] EnemyDestination = new float[5];
+    public static float[] EnemySurviveTime = new float[5];
 
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad (this);
+        DontDestroyOnLoad(this);
         StageNumber = 0;
         Gold = 100;
     }

@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour
 {
     NavMeshAgent Enemy_Nav;
     GameObject Destination;
+    private int EnemyID;
     public int maxHp;
     int Def;
     int maxDef = 10;
@@ -15,7 +16,8 @@ public class EnemyController : MonoBehaviour
     int maxDefMagic = 0;
     float speed;
     float speedMax = 2.0f;
-    float dist = 0f;
+    private float dist = 0f;
+    private float SurviveTime = 0f;
     
     bool freeze = false;
     float freezeEffectTime;
@@ -35,24 +37,27 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
-        GameScore.EnemyNumber++;
+        EnemyID = GameScore.EnemyNumber;
         //プレイヤーのNavMeshAgentを取得
         Enemy_Nav = GetComponent<NavMeshAgent>();
         //目的地のオブジェクトを取得
         Destination = GameObject.FindWithTag("goalpoint");
 
-        speed = speedMax;
+        GameObject.Find("GeneticAlgorithm").GetComponent<GeneticAlgorithm>().GeneticBuffs();
+
+        speed = speedMax + GeneticAlgorithm.EnemySpeedBuff[EnemyID];
         this.Enemy_Nav.speed = speed;
         
-        Def = maxDef;
-        DefMagic = maxDefMagic;
+        Def = maxDef + GeneticAlgorithm.EnemyPhysicsBuff[EnemyID];
+        DefMagic = maxDefMagic + GeneticAlgorithm.EnemyMagicBuff[EnemyID];
 
-        maxHp = 100;
+        maxHp = 100 + GeneticAlgorithm.EnemyHPBuff[EnemyID];
         hp = maxHp;
 
         //Debug.Log("Start currentHp : " + hp);
 
         slider.value = 1;
+        GameScore.EnemyNumber++;
     }
 
     void Update()
@@ -61,6 +66,9 @@ public class EnemyController : MonoBehaviour
         Enemy_Nav.SetDestination(Destination.transform.position);
         NavMeshPath path = Enemy_Nav.path; //経路パス（曲がり角座標のVector3配列）を取得
         Vector3 corner = transform.position; //自分の現在位置
+
+        SurviveTime = SurviveTime + Time.deltaTime;
+        
         if(burn == true){
             burnInterval = burnInterval + Time.deltaTime;
             burnEffectTime = burnEffectTime + Time.deltaTime;
@@ -93,9 +101,10 @@ public class EnemyController : MonoBehaviour
                 dist += Vector3.Distance(corner, corner2);
                 corner = corner2;
             }
-            GameScore.EnemyDestination[GameScore.EnemyNumber] = dist;
+            GameScore.EnemyDestination[EnemyID % 5] = dist;
+            GameScore.EnemySurviveTime[EnemyID % 5] = SurviveTime;
             dist = 0;
-            print(GameScore.EnemyDestination[GameScore.EnemyNumber]);
+            print(EnemyID + "," + GameScore.EnemyDestination[EnemyID % 5] + "," + GameScore.EnemySurviveTime[EnemyID % 5]);
             GameTimeline.EnemyDestruction++;
 			Destroy(this.gameObject);
 		}
@@ -119,7 +128,6 @@ public class EnemyController : MonoBehaviour
         GameScore.DamagedNumber[GameScore.StageNumber]++;
         //print(hp);
         slider.value = (float)hp / (float)maxHp;
-
 	}
     public void Debuffed(int DebuffType,float DebuffTimeMax,float DebuffEffectSizeMax,int DebuffDamage){
         if(DebuffType == 0){
@@ -137,6 +145,7 @@ public class EnemyController : MonoBehaviour
     {
 		if(other.gameObject.tag == "goalpoint")
 		{
+            GameScore.EnemySurviveTime[EnemyID % 5] = 0;
             Destroy(this.gameObject);
             GoalDurability.GoalDurabilityNum--;
             GameTimeline.EnemyDestruction++;
