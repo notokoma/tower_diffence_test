@@ -46,9 +46,9 @@ public class GameTimeline : MonoBehaviour
             GameObject StartingPoint = GameObject.Find("enemyspawnpoint");
             Transform StartingPointTransform = StartingPoint.transform;
             Vector3 StartingPointPos = StartingPointTransform.position;
-
             GameObject obj = (GameObject)Resources.Load ("Enemy");
             Instantiate (obj, StartingPointPos, Quaternion.identity);
+            
             spawncounter+=1;
             time=0; //時間リセット
             interval = GetRandomTime(); //インターバルを乱数に再設定する
