@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TrapCanon : MonoBehaviour
 {
+    int count = 0;
     private GameObject[] targets;
     float closeDist;
     float CanonInterval;
@@ -23,6 +24,30 @@ public class TrapCanon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
+
+
+    if (count >= 5)
+         {
+           // カウント変数が5以上であれば、オブジェクトの生成を中止する
+        return;
+        }
+        
+        // オブジェクトを生成する
+    // （ここでは、単純な例としてCubeオブジェクトを生成する）
+    GameObject Canon = GameObject.CreatePrimitive(PrimitiveType.Cube);
+
+    // オブジェクトの生成後、
+        count++;
+
+
+
+
+
+
+
+
         CanonInterval = CanonInterval + Time.deltaTime;
         targets = GameObject.FindGameObjectsWithTag("enemy");
         foreach (GameObject t in targets)

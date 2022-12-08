@@ -190,6 +190,15 @@ public class BuffSelect : MonoBehaviour
             }
             break;
         }
+<<<<<<< Updated upstream
+=======
+
+        // ButtonBuffMas = (GameObject)Resources.Load ("ButtonBuffMaster");
+        // v = new Vector3(0,0,0);
+        // Instantiate (ButtonBuffMas, v, Quaternion.identity);
+
+
+>>>>>>> Stashed changes
     }
     // Update is called once per frame
     void Update()
