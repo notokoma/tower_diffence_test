@@ -26,7 +26,7 @@ public class GameTimeline : MonoBehaviour
         deployTime = true;
         EnemyDestruction = 0;
         interval = GetRandomTime(); //ランダムに決定
-        print(GameScore.StageNumber);
+        //print(GameScore.StageNumber);
         spawn=true;
 
     }
@@ -49,15 +49,13 @@ public class GameTimeline : MonoBehaviour
 
             GameObject obj = (GameObject)Resources.Load ("Enemy");
             Instantiate (obj, StartingPointPos, Quaternion.identity);
-            spawncounter+=1;
+            spawncounter++;
             time=0; //時間リセット
             interval = GetRandomTime(); //インターバルを乱数に再設定する
         }
 
         if(EnemySpawnNumber == EnemyDestruction){ //全部破壊したら
             deployTime = true;
-
-            
             print(GameScore.ClearTime[GameScore.StageNumber] 
             + "," + GameScore.MagicDamaged[GameScore.StageNumber]
             + "," + GameScore.PhysicsDamaged[GameScore.StageNumber]

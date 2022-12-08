@@ -35,24 +35,25 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
-        GameScore.EnemyNumber++;
         //プレイヤーのNavMeshAgentを取得
         Enemy_Nav = GetComponent<NavMeshAgent>();
         //目的地のオブジェクトを取得
         Destination = GameObject.FindWithTag("goalpoint");
 
-        speed = speedMax;
+        GameObject.Find("GeneticAlgorithm").GetComponent<GeneticAlgorithm>().GeneticBuffs();
+
+        maxHp = 100 + GeneticAlgorithm.EnemyHPBuff[GameScore.EnemyNumber];
+        speed = speedMax + GeneticAlgorithm.EnemySpeedBuff[GameScore.EnemyNumber];
         this.Enemy_Nav.speed = speed;
         
-        Def = maxDef;
-        DefMagic = maxDefMagic;
-
-        maxHp = 100;
+        Def = maxDef + GeneticAlgorithm.EnemyPhysicsBuff[GameScore.EnemyNumber];
+        DefMagic = maxDefMagic + GeneticAlgorithm.EnemyMagicBuff[GameScore.EnemyNumber];
         hp = maxHp;
 
         //Debug.Log("Start currentHp : " + hp);
 
         slider.value = 1;
+        GameScore.EnemyNumber++;
     }
 
     void Update()
@@ -86,7 +87,7 @@ public class EnemyController : MonoBehaviour
             freezeEffectTime = 0;
         }
 
-		if(hp <= 0){
+		if(hp <= 0){ //倒された時の処理
             //print(GameScore.CanonDamaged + "," + GameScore.FirewallDamaged);
             for (int i = 0; i < path.corners.Length; i++){
                 Vector3 corner2 = path.corners[i];
@@ -95,7 +96,7 @@ public class EnemyController : MonoBehaviour
             }
             GameScore.EnemyDestination[GameScore.EnemyNumber] = dist;
             dist = 0;
-            print(GameScore.EnemyDestination[GameScore.EnemyNumber]);
+            //print(GameScore.EnemyDestination[GameScore.EnemyNumber]);
             GameTimeline.EnemyDestruction++;
 			Destroy(this.gameObject);
 		}

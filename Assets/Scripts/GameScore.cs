@@ -17,6 +17,7 @@ public class GameScore : MonoBehaviour
         DontDestroyOnLoad (this);
         StageNumber = 0;
         Gold = 100;
+        EnemyNumber = 0;
     }
 
     // Update is called once per frame

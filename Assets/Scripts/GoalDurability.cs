@@ -5,10 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class GoalDurability : MonoBehaviour
 {
-    public static int GoalDurabilityNum;
+    public static int GoalDurabilityNum = 3;
 
     void Start(){
-        GoalDurabilityNum = 3;
     }
 
     // Update is called once per frame
