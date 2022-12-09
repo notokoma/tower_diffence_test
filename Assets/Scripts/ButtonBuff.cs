@@ -402,17 +402,17 @@ public class ButtonBuff : MonoBehaviour
     public void OnClick()
     {
         if(ButtonSelect1 == this.gameObject){
-            print(BuffSelect.ButtonBuff1);
+            //print(BuffSelect.ButtonBuff1);
             TrapBuffs.Buffs[BuffSelect.ButtonBuff1] = true;
             Destroy(ButtonSelectPrimal);
         }
         if(ButtonSelect2 == this.gameObject){
-            print(BuffSelect.ButtonBuff2);
+            //print(BuffSelect.ButtonBuff2);
             TrapBuffs.Buffs[BuffSelect.ButtonBuff2] = true;
             Destroy(ButtonSelectPrimal);
         }
         if(ButtonSelect3 == this.gameObject){
-            print(BuffSelect.ButtonBuff3);
+            //print(BuffSelect.ButtonBuff3);
             TrapBuffs.Buffs[BuffSelect.ButtonBuff3] = true;
             Destroy(ButtonSelectPrimal);
         }

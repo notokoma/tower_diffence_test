@@ -9,13 +9,14 @@ public class EnemyController : MonoBehaviour
     NavMeshAgent Enemy_Nav;
     GameObject Destination;
     private int EnemyID;
-    public int maxHp;
+    [HideInInspector] public int maxHp = 100;
     int Def;
     int maxDef = 10;
     int DefMagic;
     int maxDefMagic = 0;
     float speed;
     float speedMax = 2.0f;
+    float damageMin;
     private float dist = 0f;
     private float SurviveTime = 0f;
     
@@ -51,7 +52,7 @@ public class EnemyController : MonoBehaviour
         Def = maxDef + GeneticAlgorithm.EnemyPhysicsBuff[EnemyID];
         DefMagic = maxDefMagic + GeneticAlgorithm.EnemyMagicBuff[EnemyID];
 
-        maxHp = 100 + GeneticAlgorithm.EnemyHPBuff[EnemyID];
+        maxHp = maxHp + GeneticAlgorithm.EnemyHPBuff[EnemyID];
         hp = maxHp;
 
         //Debug.Log("Start currentHp : " + hp);
@@ -104,19 +105,21 @@ public class EnemyController : MonoBehaviour
             GameScore.EnemyDestination[EnemyID % 5] = dist;
             GameScore.EnemySurviveTime[EnemyID % 5] = SurviveTime;
             dist = 0;
-            print(EnemyID + "," + GameScore.EnemyDestination[EnemyID % 5] + "," + GameScore.EnemySurviveTime[EnemyID % 5]);
+            //print(EnemyID + "," + GameScore.EnemyDestination[EnemyID % 5] + "," + GameScore.EnemySurviveTime[EnemyID % 5]);
             GameTimeline.EnemyDestruction++;
 			Destroy(this.gameObject);
 		}
     }
     public void Damaged(int damage, int DamageType)
 	{
+        damageMin = damage * 0.1f;
         if(DamageType == 1){
-            damage = damage - Def;
-            //print(damage);
-            if(damage >= 0){
-                GameScore.PhysicsDamaged[GameScore.StageNumber] = GameScore.PhysicsDamaged[GameScore.StageNumber] + damage;
-            }
+                damage = damage - Def;
+                if(damage <= 0){
+                    damage = Mathf.RoundToInt(damageMin);
+                    print(damage);
+                }
+            GameScore.PhysicsDamaged[GameScore.StageNumber] = GameScore.PhysicsDamaged[GameScore.StageNumber] + damage;
         } else if(DamageType == 2){
             damage = damage * (100-DefMagic) / 100;
             //print(damage);

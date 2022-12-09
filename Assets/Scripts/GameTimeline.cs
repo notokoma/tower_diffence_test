@@ -26,7 +26,7 @@ public class GameTimeline : MonoBehaviour
         deployTime = true;
         EnemyDestruction = 0;
         interval = GetRandomTime(); //ランダムに決定
-        print(GameScore.StageNumber);
+        //print(GameScore.StageNumber);
         spawn=true;
 
     }
