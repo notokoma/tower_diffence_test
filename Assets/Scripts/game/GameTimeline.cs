@@ -26,7 +26,7 @@ public class GameTimeline : MonoBehaviour
         deployTime = true;
         EnemyDestruction = 0;
         interval = GetRandomTime(); //ランダムに決定
-        print(GameScore.StageNumber);
+        //print(GameScore.StageNumber);
         spawn=true;
 
     }
@@ -37,6 +37,8 @@ public class GameTimeline : MonoBehaviour
         if(deployTime == false){ //時間計測
             SpawnTimecounter = SpawnTimecounter + Time.deltaTime;
             GameScore.ClearTime[GameScore.StageNumber] = GameScore.ClearTime[GameScore.StageNumber] + Time.deltaTime;
+            GameObject.Find("BGM_Before_deploy").GetComponent<AudioSource>().enabled=false;
+            GameObject.Find("BGM_After_deploy").GetComponent<AudioSource>().enabled=true;
         }
 
         time += Time.deltaTime;

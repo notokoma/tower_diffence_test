@@ -1759,9 +1759,9 @@ public class BuffSelect : MonoBehaviour
             break;
         }
 
-        ButtonBuffMas = (GameObject)Resources.Load ("ButtonBuffMaster");
-        v = new Vector3(0,0,0);
-        Instantiate (ButtonBuffMas, v, Quaternion.identity);
+        // ButtonBuffMas = (GameObject)Resources.Load ("ButtonBuffMaster");
+        // v = new Vector3(0,0,0);
+        // Instantiate (ButtonBuffMas, v, Quaternion.identity);
 
 
     }

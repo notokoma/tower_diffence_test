@@ -13,6 +13,7 @@ public class TrapFirewall : MonoBehaviour
     float damageBurnTime = 3.0f;
 	int DamageTypeFirewall = 2;
 	int Damagebuffs;
+    AudioSource audioSource;
 
 	void Start()
     {
@@ -78,7 +79,7 @@ public class TrapFirewall : MonoBehaviour
 
 		damageFirewall = damageFirewallPrimal + Damagebuffs; 
 		damageBurn = Mathf.RoundToInt(damageBurnPrimal + (float)Damagebuffs * 0.15f);
-
+        audioSource = GetComponent<AudioSource>();
     }
 
 
@@ -86,6 +87,7 @@ public class TrapFirewall : MonoBehaviour
     {
 		if(other.gameObject.tag == "enemy")
 		{
+            audioSource.Play();
             if(FirewallEX == true){
                 other.gameObject.GetComponent<EnemyController>().Damaged(damageFirewall,DamageTypeFirewall);
                 other.gameObject.GetComponent<EnemyController>().Debuffed(0,damageBurnTime,damageBurnIntervalMax,damageBurn);

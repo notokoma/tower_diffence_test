@@ -32,7 +32,7 @@ public class objectClick : MonoBehaviour, IPointerClickHandler
         for(int i=0;i<11;i++){
             for(int j=0;j<11;j++){
             if(i*2 == thisPos.x && j*2 == parentPos.z){
-            print(StageAllay.TerrainStage[j,i] + "," + thisPos.x + "," + parentPos.z);
+            //print(StageAllay.TerrainStage[j,i] + "," + thisPos.x + "," + parentPos.z);
         if (StageAllay.DeployStage[j,i] == 0){
             thisPos.z = parentPos.z;
             switch(trapType){

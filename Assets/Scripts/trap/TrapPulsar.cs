@@ -21,6 +21,7 @@ public class TrapPulsar : MonoBehaviour
     bool PulsarEX;
     Collider[] targets;
     Light lt;
+    AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -110,7 +111,7 @@ public class TrapPulsar : MonoBehaviour
         IntervalStartRandom = Random.Range(0.1f,PulsarIntervalMax - 0.1f);
         PulsarInterval = IntervalStartRandom;
         damagePulsar = damagePulsarPrimal +Damagebuffs;
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -125,6 +126,7 @@ public class TrapPulsar : MonoBehaviour
 		    {
                 if(target.gameObject.tag == "enemy")
                 {
+                    audioSource.Play();
                     LightOn = true;
                     if(PulsarEX == true){
                         target.gameObject.GetComponent<EnemyController>().Damaged(damagePulsar,DamageTypePulsar);

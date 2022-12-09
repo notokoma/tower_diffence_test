@@ -15,6 +15,7 @@ public class TrapCanon : MonoBehaviour
     GameObject closeEnemy;
     public GameObject nullnull;
     GameObject BoomObj;
+    AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -62,6 +63,7 @@ public class TrapCanon : MonoBehaviour
         closeDistN = closeDistNPrimal + closeDistBuff;
         closeDist = closeDistN;
         BoomObj = (GameObject)Resources.Load ("CanonBoom");
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -89,8 +91,8 @@ public class TrapCanon : MonoBehaviour
                 //print(Vector3.Distance(transform.position, t.transform.position));
 
                 if(closeEnemy != nullnull && CanonInterval >= CanonIntervalMax){
-                
                 Instantiate (BoomObj, thisPos, Quaternion.identity);
+                audioSource.Play();
                 CanonBoomScript.destinationEnemy = closeEnemy;
                 CanonInterval = 0.0f;
 
