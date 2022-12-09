@@ -6,7 +6,6 @@ public class TitleNextSound : MonoBehaviour
 {
 
 public static bool SoundFlag1 = false;
-public AudioClip sound1;
 AudioSource audioSource;
 
     // Start is called before the first frame update
@@ -20,7 +19,7 @@ AudioSource audioSource;
     public void Update()
     {
         if(SoundFlag1 == true)
-        audioSource.PlayOneShot(sound1);
+        audioSource.Play();
         SoundFlag1 = false;
     }
 }

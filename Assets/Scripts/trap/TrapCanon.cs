@@ -8,9 +8,9 @@ public class TrapCanon : MonoBehaviour
     public static int CanonLevel;
     float closeDist;
     float CanonInterval;
-    float CanonIntervalMax = 0.8f;
+    float CanonIntervalMax = 0.6f;
     float closeDistN;
-    float closeDistNPrimal = 4.5f;
+    float closeDistNPrimal = 5.5f;
     float closeDistBuff;
     GameObject closeEnemy;
     public GameObject nullnull;

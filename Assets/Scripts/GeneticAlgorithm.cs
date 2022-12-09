@@ -59,31 +59,31 @@ public class GeneticAlgorithm : MonoBehaviour
             break;
 
             case 3:
-            EnemyHPBuff[GameScore.EnemyNumber] = 90;
+            EnemyHPBuff[GameScore.EnemyNumber] = 80;
             break;
 
             case 4:
-            EnemyHPBuff[GameScore.EnemyNumber] = 150;
+            EnemyHPBuff[GameScore.EnemyNumber] = 120;
             break;
 
             case 5:
-            EnemyHPBuff[GameScore.EnemyNumber] = 225;
+            EnemyHPBuff[GameScore.EnemyNumber] = 175;
             break;
 
             case 6:
-            EnemyHPBuff[GameScore.EnemyNumber] = 320;
+            EnemyHPBuff[GameScore.EnemyNumber] = 200;
             break;
 
             case 7:
-            EnemyHPBuff[GameScore.EnemyNumber] = 400;
+            EnemyHPBuff[GameScore.EnemyNumber] = 240;
             break;
 
             case 8:
-            EnemyHPBuff[GameScore.EnemyNumber] = 500;
+            EnemyHPBuff[GameScore.EnemyNumber] = 300;
             break;
 
             case 9:
-            EnemyHPBuff[GameScore.EnemyNumber] = 650;
+            EnemyHPBuff[GameScore.EnemyNumber] = 380;
             break;
         }
         switch(EnemyGeneticPhysics[GameScore.EnemyNumber]){
@@ -91,39 +91,39 @@ public class GeneticAlgorithm : MonoBehaviour
             break;
 
             case 1:
-            EnemyPhysicsBuff[GameScore.EnemyNumber] = 10;
+            EnemyPhysicsBuff[GameScore.EnemyNumber] = 5;
             break;
 
             case 2:
-            EnemyPhysicsBuff[GameScore.EnemyNumber] = 25;
+            EnemyPhysicsBuff[GameScore.EnemyNumber] = 10;
             break;
 
             case 3:
-            EnemyPhysicsBuff[GameScore.EnemyNumber] = 45;
+            EnemyPhysicsBuff[GameScore.EnemyNumber] = 15;
             break;
 
             case 4:
-            EnemyPhysicsBuff[GameScore.EnemyNumber] = 70;
+            EnemyPhysicsBuff[GameScore.EnemyNumber] = 25;
             break;
 
             case 5:
-            EnemyPhysicsBuff[GameScore.EnemyNumber] = 100;
+            EnemyPhysicsBuff[GameScore.EnemyNumber] = 40;
             break;
 
             case 6:
-            EnemyPhysicsBuff[GameScore.EnemyNumber] = 115;
+            EnemyPhysicsBuff[GameScore.EnemyNumber] = 45;
             break;
 
             case 7:
-            EnemyPhysicsBuff[GameScore.EnemyNumber] = 140;
+            EnemyPhysicsBuff[GameScore.EnemyNumber] = 60;
             break;
 
             case 8:
-            EnemyPhysicsBuff[GameScore.EnemyNumber] = 155;
+            EnemyPhysicsBuff[GameScore.EnemyNumber] = 80;
             break;
 
             case 9:
-            EnemyPhysicsBuff[GameScore.EnemyNumber] = 190;
+            EnemyPhysicsBuff[GameScore.EnemyNumber] = 100;
             break;
 
         }
@@ -156,37 +156,37 @@ public class GeneticAlgorithm : MonoBehaviour
             break;
 
             case 7:
-            EnemyMagicBuff[GameScore.EnemyNumber] = 45;
+            EnemyMagicBuff[GameScore.EnemyNumber] = 42;
             break;
 
             case 8:
-            EnemyMagicBuff[GameScore.EnemyNumber] = 60;
+            EnemyMagicBuff[GameScore.EnemyNumber] = 50;
             break;
 
             case 9:
-            EnemyMagicBuff[GameScore.EnemyNumber] = 80;
+            EnemyMagicBuff[GameScore.EnemyNumber] = 65;
             break;
         }
         switch(EnemyGeneticSpeed[GameScore.EnemyNumber]){
             case 0:
             break;
             case 1:
-            EnemySpeedBuff[GameScore.EnemyNumber] = 0.2f;
+            EnemySpeedBuff[GameScore.EnemyNumber] = 0.3f;
             break;
 
             case 2:
             case 3:
-            EnemySpeedBuff[GameScore.EnemyNumber] = 0.4f;
+            EnemySpeedBuff[GameScore.EnemyNumber] = 0.6f;
             break;
 
             case 4:
             case 5:
-            EnemySpeedBuff[GameScore.EnemyNumber] = 0.7f;
+            EnemySpeedBuff[GameScore.EnemyNumber] = 1.0f;
             break;
 
             case 6:
             case 7:
-            EnemySpeedBuff[GameScore.EnemyNumber] = 1.3f;
+            EnemySpeedBuff[GameScore.EnemyNumber] = 1.5f;
             break;
 
             case 8:
@@ -395,52 +395,6 @@ public class GeneticAlgorithm : MonoBehaviour
                 }
                 i++;
             }
-
-            i = 0;
-            while(i < 5){
-                randomGenetic1 = UnityEngine.Random.Range(1, 5);
-                randomGenetic2 = UnityEngine.Random.Range(1, 5);
-                while(randomGenetic1 == randomGenetic2)
-                {
-                    randomGenetic2 = UnityEngine.Random.Range(1, 5);
-                }
-                switch(randomGenetic1){
-                    case 1:
-                    EnemyGeneticHP[GameScore.EnemyNumber + i]+=2;
-                    break;
-                    case 2:
-                    EnemyGeneticPhysics[GameScore.EnemyNumber + i]+=2;
-                    break;
-
-                    case 3:
-                    EnemyGeneticMagic[GameScore.EnemyNumber + i]+=2;
-                    break;
-
-                    case 4:
-                    EnemyGeneticSpeed[GameScore.EnemyNumber + i]+=2;
-                    break;
-                }
-                switch(randomGenetic2){
-                    case 1:
-                    EnemyGeneticHP[GameScore.EnemyNumber + i]+=2;
-                    break;
-
-                    case 2:
-                    EnemyGeneticPhysics[GameScore.EnemyNumber + i]+=2;
-                    break;
-
-                    case 3:
-                    EnemyGeneticMagic[GameScore.EnemyNumber + i]+=2;
-                    break;
-
-                    case 4:
-                    EnemyGeneticSpeed[GameScore.EnemyNumber + i]+=2;
-                    break;
-                }
-                i++;
-
-                //print(EnemyGeneticHP[GameScore.EnemyNumber + i] + " , " + EnemyGeneticPhysics[GameScore.EnemyNumber + i] + " , " + EnemyGeneticMagic[GameScore.EnemyNumber + i] + " , " + EnemyGeneticSpeed[GameScore.EnemyNumber + i]);
-            }
             
             i = 0;
             while(i < 5){
@@ -453,36 +407,36 @@ public class GeneticAlgorithm : MonoBehaviour
 
                 switch(randomGenetic1){
                     case 1:
-                    EnemyGeneticHP[GameScore.EnemyNumber + i]+=2;
+                    EnemyGeneticHP[GameScore.EnemyNumber + i]+=1;
                     break;
 
                     case 2:
-                    EnemyGeneticPhysics[GameScore.EnemyNumber + i]+=2;
+                    EnemyGeneticPhysics[GameScore.EnemyNumber + i]+=1;
                     break;
 
                     case 3:
-                    EnemyGeneticMagic[GameScore.EnemyNumber + i]+=2;
+                    EnemyGeneticMagic[GameScore.EnemyNumber + i]+=1;
                     break;
 
                     case 4:
-                    EnemyGeneticSpeed[GameScore.EnemyNumber + i]+=2;
+                    EnemyGeneticSpeed[GameScore.EnemyNumber + i]+=1;
                     break;
                 }
                 switch(randomGenetic2){
                     case 1:
-                    EnemyGeneticHP[GameScore.EnemyNumber + i]+=2;
+                    EnemyGeneticHP[GameScore.EnemyNumber + i]+=1;
                     break;
 
                     case 2:
-                    EnemyGeneticPhysics[GameScore.EnemyNumber + i]+=2;
+                    EnemyGeneticPhysics[GameScore.EnemyNumber + i]+=1;
                     break;
 
                     case 3:
-                    EnemyGeneticMagic[GameScore.EnemyNumber + i]+=2;
+                    EnemyGeneticMagic[GameScore.EnemyNumber + i]+=1;
                     break;
 
                     case 4:
-                    EnemyGeneticSpeed[GameScore.EnemyNumber + i]+=2;
+                    EnemyGeneticSpeed[GameScore.EnemyNumber + i]+=1;
                     break;
                 }
                 i++;
