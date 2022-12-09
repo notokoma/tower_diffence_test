@@ -115,10 +115,10 @@ public class EnemyController : MonoBehaviour
         damageMin = damage * 0.1f;
         if(DamageType == 1){
             damage = damage - Def;
-                if(damage <= 0){
-                    damage = Mathf.RoundToInt(damageMin);
-                    print(damage);
-                }
+            if(damage <= 0){
+                damage = Mathf.RoundToInt(damageMin);
+                print(damage);
+            }
             GameScore.PhysicsDamaged[GameScore.StageNumber] = GameScore.PhysicsDamaged[GameScore.StageNumber] + damage;
         } else if(DamageType == 2){
             damage = damage * (100-DefMagic) / 100;
